@@ -5,7 +5,7 @@ import models.invoice.Ticket
 object TicketRepository {
     private val allTickets = mutableMapOf<Int, Ticket>()
 
-    fun addTicket(ticket: Ticket){
+    fun addTicket(ticket: Ticket) {
         allTickets[ticket.ticketNo] = ticket
     }
 
@@ -17,7 +17,7 @@ object TicketRepository {
         return allTickets[ticketId] != null
     }
 
-    fun resetTicketsInventory(){
+    fun resetTicketsInventory() {
         allTickets.clear()
     }
 }

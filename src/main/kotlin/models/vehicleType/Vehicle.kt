@@ -22,7 +22,7 @@ open class Vehicle(
         this.vehicleStatus = VehicleStatus.PARKED
     }
 
-    fun setVehicleStatusAsUnParked(){
+    fun setVehicleStatusAsUnParked() {
         this.vehicleStatus = VehicleStatus.UN_PARKED
     }
 }

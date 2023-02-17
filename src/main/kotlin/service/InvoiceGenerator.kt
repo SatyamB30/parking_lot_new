@@ -12,11 +12,11 @@ object InvoiceGenerator {
         return receiptId++
     }
 
-    fun resetTicketId(){
+    fun resetTicketId() {
         ticketId = 1
     }
 
-    fun resetReceiptId(){
+    fun resetReceiptId() {
         receiptId = 1
     }
 }

@@ -25,6 +25,7 @@ class ReceiptServiceTest {
     @Test
     fun `should generate a receipt for valid ticket`() {
         val ticket = TicketService().getTicket(1, Car(111), LocalDateTime.of(2022, 1, 5, 9, 0, 0, 0))
+
         val receipt = ReceiptService().getReceipt(ticket, LocalDateTime.of(2022, 1, 5, 10, 0, 0, 0))
 
         assertEquals(10, receipt.fee)
@@ -36,6 +37,7 @@ class ReceiptServiceTest {
         val ticket1 = TicketService().getTicket(1, Car(111), LocalDateTime.of(2022, 1, 5, 9, 0, 0, 0))
         val ticket2 = TicketService().getTicket(1, Car(111), LocalDateTime.of(2022, 1, 5, 10, 0, 0, 0))
         ReceiptService().getReceipt(ticket1, LocalDateTime.of(2022, 1, 5, 10, 0, 0, 0))
+
         val receipt2 = ReceiptService().getReceipt(ticket2, LocalDateTime.of(2022, 1, 5, 12, 0, 0, 0))
 
         assertEquals(20, receipt2.fee)

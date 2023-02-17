@@ -23,7 +23,7 @@ class ParkingServiceTest {
     }
 
     @Test
-    fun `should park a car to slot 1 and ticketno1`() {
+    fun `should park a car to slot 1 and ticketNo 1`() {
         val car = Car(7226)
 
         val ticket = ParkingService().parkVehicle(car, mall)
@@ -48,15 +48,12 @@ class ParkingServiceTest {
     @Test
     fun `should park and un park a car to get the receipt`() {
         val car1 = Car(7226)
-
         val ticket = ParkingService().parkVehicle(car1, mall)
 
         val receipt = ParkingService().unParkVehicle(ticket!!.ticketNo, mall, car1)
 
         assertEquals(1, receipt!!.receiptNo)
         assertEquals(VehicleStatus.UN_PARKED, car1.getVehicleStatus())
-
-
     }
 
     @Test
@@ -72,6 +69,7 @@ class ParkingServiceTest {
         for (index in 0..99) {
             ParkingService().parkVehicle(Car(vehicleNo = index), mall)
         }
+
         val ticket101 = ParkingService().parkVehicle(Car(vehicleNo = 101), mall)
 
         assertNull(ticket101)

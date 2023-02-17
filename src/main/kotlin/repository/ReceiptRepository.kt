@@ -5,7 +5,7 @@ import models.invoice.Receipt
 object ReceiptRepository {
     private val allReceipts = mutableMapOf<Int, Receipt>()
 
-    fun addReceipt(receipt: Receipt){
+    fun addReceipt(receipt: Receipt) {
         allReceipts[receipt.receiptNo] = receipt
     }
 
@@ -17,7 +17,7 @@ object ReceiptRepository {
         return allReceipts[ticketId] != null
     }
 
-    fun resetReceiptsInventory(){
+    fun resetReceiptsInventory() {
         allReceipts.clear()
     }
 }

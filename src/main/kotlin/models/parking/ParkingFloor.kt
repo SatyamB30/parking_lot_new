@@ -20,7 +20,7 @@ open class ParkingFloor(private val floorSize: Int, val floorType: ParkingType) 
         slots[slotId - 1] = false
     }
 
-    fun unParkVehicleAtSlot(slotId: Int){
+    fun unParkVehicleAtSlot(slotId: Int) {
         slots[slotId - 1] = true
     }
 }
