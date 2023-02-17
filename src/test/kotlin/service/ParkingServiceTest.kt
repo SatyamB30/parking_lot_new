@@ -5,6 +5,7 @@ import models.vehicleType.Car
 import models.vehicleType.VehicleStatus
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
 import repository.FeeRepository
 import repository.ReceiptRepository
@@ -54,5 +55,25 @@ class ParkingServiceTest {
 
         assertEquals(1, receipt!!.receiptNo)
         assertEquals(VehicleStatus.UN_PARKED, car1.getVehicleStatus())
+
+
+    }
+
+    @Test
+    fun `should return null receipt if ticket doesn't exist`() {
+        val receipt = ParkingService().unParkVehicle(124, mall, Car(123))
+
+        assertNull(receipt)
+    }
+
+    @Test
+    fun `should return null if parking doesn't exist at time of parking`() {
+        val mall = Mall()
+        for (index in 0..99) {
+            ParkingService().parkVehicle(Car(vehicleNo = index), mall)
+        }
+        val ticket101 = ParkingService().parkVehicle(Car(vehicleNo = 101), mall)
+
+        assertNull(ticket101)
     }
 }
